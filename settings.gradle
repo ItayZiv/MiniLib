@@ -1,0 +1,2 @@
+include ':minilib'
+rootProject.name = "MiniLib"
