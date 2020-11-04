@@ -5,15 +5,14 @@ public interface Subsystem {
     default void periodic() {}
 
     default void setDefaultCommand(Command defaultCommand) {
-        // todo impl via scheduler
+        CommandScheduler.getInstance().setDefaultCommand(this, defaultCommand);
     }
 
     default Command getDefaultCommand() {
-        // todo impl via scheduler
-        return null;
+        return CommandScheduler.getInstance().getDefaultCommand(this);
     }
 
     default void register() {
-        // todo impl via scheduler
+        CommandScheduler.getInstance().registerSubsystem(this);
     }
 }

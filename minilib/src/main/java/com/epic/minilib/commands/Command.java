@@ -16,21 +16,16 @@ public interface Command {
 
     Set<Subsystem> getRequirements();
 
-    default void schedule(boolean interruptible) {
-        // todo impl via scheduler
-    }
-
     default void schedule() {
-        schedule(true);
+        CommandScheduler.getInstance().schedule(this);
     }
 
     default void cancel() {
-        // todo impl via scheduler
+        CommandScheduler.getInstance().cancelCommand(this);
     }
 
     default boolean isScheduled() {
-        // todo impl via scheduler
-        return false;
+        return CommandScheduler.getInstance().isScheduled(this);
     }
 
     default boolean hasRequirement(Subsystem requirement) {
