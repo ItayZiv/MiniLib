@@ -67,6 +67,10 @@ public class CommandScheduler {
         m_subsystems.get(subsystem).defaultCommand = command;
     }
 
+    public Command getDefaultCommand(Subsystem subsystem) {
+        return m_subsystems.get(subsystem).defaultCommand;
+    }
+
     private void initCommand(Command command)
     {
         // Assign all the requirements of the command and interrupt
