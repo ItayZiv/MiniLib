@@ -71,6 +71,14 @@ public class CommandScheduler {
         return m_subsystems.get(subsystem).defaultCommand;
     }
 
+    public void cancelCommand(Command command) {
+        endCommand(command, true);
+    }
+
+    public boolean isScheduled(Command command) {
+        return m_commands.contains(command);
+    }
+
     private void initCommand(Command command)
     {
         // Assign all the requirements of the command and interrupt
